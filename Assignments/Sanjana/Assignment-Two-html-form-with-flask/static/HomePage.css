@@ -1,0 +1,38 @@
+body {
+    font-family: sans-serif;
+  }
+
+  .parentDiv {
+    background-color: #e9ecef;
+  }
+  
+  .containerDiv {
+    padding: 30px;
+  }
+
+  .card {
+    animation-name: example2;
+    animation-duration: 2s;
+  }
+
+  .bg-color {
+    background-color: #34495e !important;
+  }
+
+  @keyframes example1 {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes example2 {
+    from {
+      transform: rotateX(0);
+    }
+    to {
+      transform: rotateX(360deg);
+    }
+  }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/united/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css "
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="/Templates/HomePage.css"
+    /> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/HomePage.css') }}" />
+    
+  <style>
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-color">
+    <a class="navbar-brand" href="#">Site</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarColor01"
+      aria-controls="navbarColor01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Home <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:5000/about">About</a>
+        </li>
+        
+      </ul>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="sign-in">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sign-up">Sign Up</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="parentDiv">
+    <div class="containerDiv">
+      <h1 class="display-3">Home Page</h1>
+      <p class="lead">
+        Hey there this is the home page. Checkout out the About page too.
+      </p>
+      <hr class="my-4" />
+      <p>
+        Landing Page
+      </p>
+    </div>
+  </div>
+</body>
+</html>
