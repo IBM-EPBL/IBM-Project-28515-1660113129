@@ -1,0 +1,261 @@
+* {
+    font-family:'Overpass', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e21;
+    color: #fff;
+}
+
+p{
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.landing {
+    margin-top: 100px;
+}
+
+#navbarToggle {
+    background-color: #000;
+}
+
+.navbar.navbar-dark .nav-item .nav-link { 
+    color: #fff!important; 
+    background-color: #000;
+} 
+
+.navbar.navbar-dark .nav-item .nav-link:hover { 
+    color: #fff!important; 
+    background-color: #000;
+}
+
+.navbar {
+    background-color: #000!important;
+}
+
+.navbar-nav {
+    background-color: #000;
+}
+
+.navbar-brand {
+    background-color: #000;
+}
+
+.lg {
+    background-color: #000;
+    font-size: xx-large;
+}
+
+h1 {
+    font-size: 33px;
+    color: #dfdcd9;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #dfdcd9;
+}
+
+.author {
+    font-size: 12px;
+}
+
+.date {
+    font-size: 12px;
+}
+
+.article-card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    color: #000;
+    background-color: #fff;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.img {
+    width: 100%;
+}
+
+.image-fluid {
+    height: 18em;
+}
+
+.cardfooter {
+    padding: 0.75rem 1.25rem;
+    padding-bottom: 0px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.article_name {
+    color: #dfdcd9;
+}
+
+.source-body {
+    margin-bottom: 30px;
+}
+
+.source {
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    color: #dd0000;
+}
+
+.logo {
+    color: #dd0000;
+    background-color: #000;
+}
+
+.svg {
+    background-color: #000;
+}
+
+.p-svg {
+    background-color: #26262a;
+}
+
+.footer {
+    background-color: #000;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.footer-text {
+    background-color: #000;
+    margin-bottom: 0px;
+}
+
+.dropdown-menu {
+    background-color: #1e1e21;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+.dropdown-item:hover {
+    color: #fff;
+    background-color: #26262a;
+}
+
+.published {
+    background-color: #26262a;
+}
+
+.card-footer {
+    background-color: #26262a;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
+.newscard {
+  font-family: 'Roboto', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #ffffff;
+  text-align: left;
+  line-height: 1.4em;
+  background-color: #141414;
+}
+.newscard * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.newscard img {
+  max-width: 100%;
+  vertical-align: top;
+  opacity: 0.85;
+}
+.newscard .date {
+  position: absolute;
+  background-color: #1e1e1e;
+  top: 0;
+  right: 0;
+  width: 100%;
+  padding: 10px 25px 0;
+  text-align: right;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+.newscard .date:before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 400px 55px 0;
+  border-color: transparent #1e1e1e transparent transparent;
+}
+.newscard figcaption {
+  width: 100%;
+  background-color: #141414;
+  padding: 0 25px 25px;
+  position: relative;
+}
+.newscard figcaption:before {
+  position: absolute;
+  content: '';
+  bottom: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 55px 0 0 400px;
+  border-color: transparent transparent transparent #141414;
+}
+.newscard figcaption a {
+  padding: 5px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  width: 47%;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.newscard figcaption a:hover {
+  opacity: 1;
+}
+.newscard h2 {
+  margin: 0 0 10px;
+  font-weight: 300;
+  font-size: 1.5em;
+  line-height: 1.2em;
+}
+.newscard p {
+  margin: 0 0 10px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
