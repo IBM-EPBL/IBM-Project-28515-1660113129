@@ -4,7 +4,7 @@
 
 <div class="container-fluid landing">
     <div class="row">
-        {% for source, title, desc, author, img, p_date, url in random %}
+        {% for source, title, desc, author, img, p_date, url in articles %}
         <figure class="newscard">
             <img src="{{ img }}" alt="something" />
             <div class="date">{{ p_date }}</div>
