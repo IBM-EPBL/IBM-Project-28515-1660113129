@@ -63,8 +63,6 @@ def personalisedArticles():
         topic.clear()
     return personalisedContent
 
-
-
 def publishedArticles():
     newsapi = NewsApiClient(api_key= Config.API_KEY)
 
@@ -420,3 +418,43 @@ def process_sources(source_list):
       news_source_object = Sources(name, description,url)
       news_source_result.append(news_source_object)
   return news_source_result
+
+def search(data):
+    query = data["user-query"]
+    newsapi = NewsApiClient(api_key= Config.API_KEY)
+
+    tech_articles = newsapi.get_everything(q=str(query))
+
+    all_articles = tech_articles['articles']
+
+    tech_articles_results = []
+
+    source = []
+    title = []
+    desc = []
+    author = []
+    img = []
+    p_date = []
+    url = []
+    contentSet = False
+
+    for i in range(len(all_articles)):
+        article = all_articles[i]
+
+        source.append(article['source'])
+        title.append(article['title'])
+        desc.append(article['description'])
+        author.append(article['author'])
+        img.append(article['urlToImage'])
+        p_date.append(article['publishedAt'])
+        url.append(article['url'])
+
+        article_object = Articles(source, title, desc, author, img, p_date, url)
+
+        tech_articles_results.append(article_object)
+
+        contentSet = True
+        contents = zip(source, title, desc, author, img, p_date, url)
+
+    if contentSet:
+        return  contents

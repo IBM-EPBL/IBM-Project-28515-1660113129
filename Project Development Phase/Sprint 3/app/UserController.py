@@ -57,6 +57,7 @@ def clearSessionData():
     else:
         return False
 
+
 def getPersonalisationValues():
     email = session['email']
     get_user_preferences = "SELECT PREFERENCE_1, PREFERENCE_2, PREFERENCE_3, PREFERENCE_4, PREFERENCE_5 FROM PREFERENCES WHERE EMAIL = '{}'".format(email)
@@ -69,7 +70,7 @@ def getPersonalisationValues():
         print(e)
         
 
-""" def sendVerificationMail(receiverEmail):
+"""def sendVerificationMail(receiverEmail):
     message = Mail(
         from_email = SendGridMailConfig.MAIL_DEFAULT_SENDER,
         to_emails = receiverEmail,

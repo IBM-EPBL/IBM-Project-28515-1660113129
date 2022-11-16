@@ -15,7 +15,6 @@ def home():
         else:
             return render_template('home.html')
 
-
 @app.route("/sign-in", methods=["GET","POST"])
 def signInFunction():
     if checkSessionData():

@@ -53,7 +53,8 @@
               </ul>
               <div class="search-bar">
                 <label class="input-search">
-                  <input type="text" placeholder="Search Your Item" />
+
+                  <form method="POST"><input type="text" name="user-query" placeholder="Search Your Item" />
                   <div class="search-menu">
                     <div class="search-related">
                       <a href="#">
@@ -95,9 +96,10 @@
                     </div>
                   </div>
                 </label>
-                <a href="#" class="search-btn">
+                <button class="search-btn" type="submit">
                   <i class="las la-search"></i>
-                </a>
+                </button>
+              </form>
               </div>
 
               <ul class="navbar-nav">
