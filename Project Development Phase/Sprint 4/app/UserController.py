@@ -19,7 +19,8 @@ def signIn():
     value = ibm_db.fetch_tuple(result)[0].replace(" ","")
 
     if value == data["password"]:
-        setSessionData(data["email"])
+        setSessionEmail(data["email"])
+        setSessionPref()
         return True
     else:
         return False
@@ -47,12 +48,32 @@ def checkSessionData():
     else:
         return False
 
-def setSessionData(email):
+def checkSessionPref():
+    if 'preference-set' in session:
+        return session['preference-set']==True
+    else:
+        return False
+
+def setSessionEmail(email):
     session['email'] = email
     return True
 
+def setSessionPref():
+    session['preference-set'] = False
+    get_user_preferences = "SELECT PREFERENCE_1 FROM PREFERENCES WHERE EMAIL = '{}'".format(session['email'])
+    check_get_user_preferences = ibm_db.exec_immediate(DB.DB_URI, get_user_preferences)
+    try:
+        value = ibm_db.fetch_tuple(check_get_user_preferences)
+        if value!=False:
+            print(value)
+            session['preference-set'] = True
+        return value
+    except Exception as e:
+        print(e)
+
 def clearSessionData():
     if session.pop('email', None):
+        session.pop('preference-set', None)
         return True
     else:
         return False

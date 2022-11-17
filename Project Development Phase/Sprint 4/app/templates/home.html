@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container-fluid landing">
-  {% if session['email'] %}
+  {% if session['preference-set']==True %}
     {% for topic, article in articles %}
     <div class="titleDiv">
       <h1>{{ topic }}</h1>

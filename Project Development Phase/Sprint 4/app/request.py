@@ -5,7 +5,7 @@ from newsapi import NewsApiClient
 
 from .config import Config
 from .models import Articles, Sources
-from .UserController import getPersonalisationValues
+from .UserController import getPersonalisationValues, checkSessionPref
 
 api_key=None
 base_url=None
@@ -17,9 +17,6 @@ def personalisedArticles():
     newsapi = NewsApiClient(api_key = Config.API_KEY)
     print(getPersonalisationValues())
     personalTopics = getPersonalisationValues()
-    
-    if personalTopics==False:
-        return []
 
     personalisedContent = []
     for currentTopic in personalTopics:

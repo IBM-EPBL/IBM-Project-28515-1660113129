@@ -1,20 +1,18 @@
 from app import app
 from flask import request, redirect, url_for, render_template
 
-from .UserController import signUp, signIn, checkSessionData, clearSessionData
+from .UserController import signUp, signIn, checkSessionData, clearSessionData, checkSessionPref
 from .request import businessArticles, entArticles, get_news_source, healthArticles, publishedArticles, randomArticles, scienceArticles, sportArticles, techArticles, topHeadlines, search, personalisedArticles
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'GET':
-        if checkSessionData():
-            """ articles = publishedArticles() """
+        if checkSessionPref():
             articles = personalisedArticles()
-            """ personalisedArticles() """
-            return render_template('home.html', articles = articles)
         else:
             articles = publishedArticles()
-            return render_template('home.html',articles = articles)
+        return render_template('home.html',articles = articles)
+
     if request.method == "POST":
         data = request.form.to_dict()
         searchResult = search(data)
