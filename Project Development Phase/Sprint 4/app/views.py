@@ -13,7 +13,8 @@ def home():
             """ personalisedArticles() """
             return render_template('home.html', articles = articles)
         else:
-            return render_template('home.html')
+            articles = publishedArticles()
+            return render_template('home.html',articles = articles)
     if request.method == "POST":
         data = request.form.to_dict()
         searchResult = search(data)
