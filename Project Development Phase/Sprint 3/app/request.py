@@ -18,7 +18,6 @@ def personalisedArticles():
     personalTopics = getPersonalisationValues()
     print(personalTopics)
     personalisedContent = []
-    topic = []
     for currentTopic in personalTopics:
         get_articles = newsapi.get_everything(
             q=currentTopic,
@@ -39,8 +38,6 @@ def personalisedArticles():
         url = []
         tempArray = []
 
-        topic.append(currentTopic)
-
         for i in all_articles[0:4]:
             source.append(i['source'])
             title.append(i['title'])
@@ -56,11 +53,11 @@ def personalisedArticles():
 
             contents = zip(source, title, desc, author, img, p_date, url)
     
-        tempArray.append(topic)
+        tempArray.append(currentTopic)
         tempArray.append(contents)
         personalisedContent.append(tempArray)
         print(personalisedContent)
-        topic.clear()
+        #topic.clear()
     return personalisedContent
 
 def publishedArticles():

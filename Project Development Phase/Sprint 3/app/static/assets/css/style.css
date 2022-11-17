@@ -458,3 +458,11 @@ h2 {
         font-size: 26px;
         
     }
+
+    .titleDiv {
+      margin: 10px 15px;
+    }
+
+    .preferance{
+      margin-left: 40px;
+    }
