@@ -5,12 +5,63 @@ from newsapi import NewsApiClient
 
 from .config import Config
 from .models import Articles, Sources
+from .UserController import getPersonalisationValues
 
 api_key=None
 base_url=None
 base_url_for_everything=None
 base_url_top_headlines=None
 base_source_list=None
+
+def personalisedArticles():
+    newsapi = NewsApiClient(api_key = Config.API_KEY)
+    personalTopics = getPersonalisationValues()
+    print(personalTopics)
+    personalisedContent = []
+    topic = []
+    for currentTopic in personalTopics:
+        get_articles = newsapi.get_everything(
+            q=currentTopic,
+            language='en',
+            sort_by='publishedAt'
+        )
+        all_articles = get_articles['articles']
+        print(type(get_articles))
+        """ print(all_articles[0:9]) """
+        articles_results = []
+
+        source = []
+        title = []
+        desc = []
+        author = []
+        img = []
+        p_date = []
+        url = []
+        tempArray = []
+
+        topic.append(currentTopic)
+
+        for i in all_articles[0:4]:
+            source.append(i['source'])
+            title.append(i['title'])
+            desc.append(i['description'])
+            author.append(i['author'])
+            img.append(i['urlToImage'])
+            p_date.append(i['publishedAt'])
+            url.append(i['url'])
+
+            article_object = Articles(source, title, desc, author, img, p_date, url)
+
+            articles_results.append(article_object)
+
+            contents = zip(source, title, desc, author, img, p_date, url)
+    
+        tempArray.append(topic)
+        tempArray.append(contents)
+        personalisedContent.append(tempArray)
+        print(personalisedContent)
+        topic.clear()
+    return personalisedContent
 
 def publishedArticles():
     newsapi = NewsApiClient(api_key= Config.API_KEY)

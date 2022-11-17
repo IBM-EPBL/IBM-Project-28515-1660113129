@@ -2,14 +2,15 @@ from app import app
 from flask import request, redirect, url_for, render_template
 
 from .UserController import signUp, signIn, checkSessionData, clearSessionData
-from .request import businessArticles, entArticles, get_news_source, healthArticles, publishedArticles, randomArticles, scienceArticles, sportArticles, techArticles, topHeadlines, search
+from .request import businessArticles, entArticles, get_news_source, healthArticles, publishedArticles, randomArticles, scienceArticles, sportArticles, techArticles, topHeadlines, search, personalisedArticles
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if request.method == "GET":
+    if request.method == 'GET':
         if checkSessionData():
-            articles = publishedArticles()
-
+            """ articles = publishedArticles() """
+            articles = personalisedArticles()
+            """ personalisedArticles() """
             return render_template('home.html', articles = articles)
         else:
             return render_template('home.html')
@@ -20,7 +21,6 @@ def home():
             return render_template('home.html', articles=searchResult)
         else:
             return render_template('error.html')
-
 
 @app.route("/sign-in", methods=["GET","POST"])
 def signInFunction():

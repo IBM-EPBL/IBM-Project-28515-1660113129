@@ -57,7 +57,20 @@ def clearSessionData():
     else:
         return False
 
-""" def sendVerificationMail(receiverEmail):
+
+def getPersonalisationValues():
+    email = session['email']
+    get_user_preferences = "SELECT PREFERENCE_1, PREFERENCE_2, PREFERENCE_3, PREFERENCE_4, PREFERENCE_5 FROM PREFERENCES WHERE EMAIL = '{}'".format(email)
+    check_get_user_preferences = ibm_db.exec_immediate(DB.DB_URI, get_user_preferences)
+    try:
+        value = ibm_db.fetch_tuple(check_get_user_preferences)
+        print(value)
+        return value
+    except Exception as e:
+        print(e)
+        
+
+"""def sendVerificationMail(receiverEmail):
     message = Mail(
         from_email = SendGridMailConfig.MAIL_DEFAULT_SENDER,
         to_emails = receiverEmail,

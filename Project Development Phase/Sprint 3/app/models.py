@@ -15,3 +15,8 @@ class Articles:
         self.urlToImage = urlToImage
         self.publishedAt = publishedAt
 
+class UserPreferences:
+    def __init__(self, email, preferences):
+        self.email = email
+        self.preferences = preferences
+

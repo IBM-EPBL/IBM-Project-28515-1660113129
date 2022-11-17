@@ -5,19 +5,43 @@
 <div class="container-fluid landing">
 <div class="row">
 
-  {% for source, title, desc, author, img, p_date, url in articles %}
-        <figure class="newscard">
-            <img src="{{ img }}" alt="something" />
-            <div class="date">{{ p_date }}</div>
-            <figcaption>
-                <h3>{{ source.name }}</h3>
-                <h2> {{ title }} </h2>
-                <h6>-{{ author }}</h6>
-                <p>{{ desc }}</p>
-                <a href="{{ url }}" class="read-more">Read More</a>
-            </figcaption>
-        </figure>
-        {% endfor %}
+  {% if session['email'] %}
+  {% for topic, article in articles %}
+  <div>
+    <h1>{{ topic }}</h1>
+  </div>
+      {% for source, title, desc, author, img, p_date, url in article %}
+            <figure class="newscard">
+                <img src="{{ img }}" alt="something" />
+                <div class="date">{{ p_date }}</div>
+                <figcaption>
+                    <h3>{{ source.name }}</h3>
+                    <h2> {{ title }} </h2>
+                    <h6>-{{ author }}</h6>
+                    <p>{{ desc }}</p>
+                    <a href="{{ url }}" class="read-more">Read More</a>
+                </figcaption>
+            </figure>
+      {% endfor %}
+    {% endfor %}
+    
+    {% else %}
+
+    {% for source, title, desc, author, img, p_date, url in articles %}
+          <figure class="newscard">
+              <img src="{{ img }}" alt="something" />
+              <div class="date">{{ p_date }}</div>
+              <figcaption>
+                  <h3>{{ source.name }}</h3>
+                  <h2> {{ title }} </h2>
+                  <h6>-{{ author }}</h6>
+                  <p>{{ desc }}</p>
+                  <a href="{{ url }}" class="read-more">Read More</a>
+              </figcaption>
+          </figure>
+    {% endfor %}
+
+    {% endif %}
   </div>
 </div>
 
