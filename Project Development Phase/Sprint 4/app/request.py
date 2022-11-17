@@ -15,8 +15,12 @@ base_source_list=None
 
 def personalisedArticles():
     newsapi = NewsApiClient(api_key = Config.API_KEY)
+    print(getPersonalisationValues())
     personalTopics = getPersonalisationValues()
-    print(personalTopics)
+    
+    if personalTopics==False:
+        return []
+
     personalisedContent = []
     for currentTopic in personalTopics:
         get_articles = newsapi.get_everything(

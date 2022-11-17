@@ -45,11 +45,20 @@ def signUpFunction():
     if request.method == "POST":
         response = signUp()
         if response:
-            return redirect(url_for("signInFunction"))
+            return redirect(url_for("setPreferences"))
         else:
             return render_template('Signup.html', msg="User already exists, please log in")
     else:
         return render_template('Signup.html')
+
+
+@app.route("/set-preferences", methods=["GET","POST"])
+def setPreferences():
+    if request.method=="GET":
+        #addPreferencesToDB() 
+        return render_template("preference.html")
+    if request.method=="POST":
+        return redirect(url_for("signInFunction"))
 
 @app.route("/logout")
 def logout():

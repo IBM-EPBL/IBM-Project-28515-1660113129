@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container pref">
+  
+    <!--  HEADER  -->
+      <header class="text-center text-light my-4">
+        <h1 class="mb-4">Set preferences:</h1>
+        <!--  FORM  -->
+      <form class="add text-center my-4">
+        <label for="add" class="add text-light">Add upto 5 favorite topics:</label>
+        <input type="text" class="form-control m-auto" name="add" id="add">
+      </form>
+      </header>
+      
+    <!--  LIST  -->
+      <ul class="list-group items mx-auto text-light">
+        
+      </ul>
+      <br>
+
+      <form class="text-center" method="POST">
+        <button class='btn btn-success text-center' type="submit">Submit</button>
+      </form>
+</div>
+
+{% endblock %}
