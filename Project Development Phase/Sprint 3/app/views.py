@@ -18,7 +18,7 @@ def home():
         data = request.form.to_dict()
         searchResult = search(data)
         if searchResult!=None:
-            return render_template('home.html', articles=searchResult)
+            return render_template('search.html', articles=searchResult)
         else:
             return render_template('error.html')
 
