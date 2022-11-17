@@ -61,36 +61,54 @@ def logout():
 
 @app.route('/headlines')
 def headlines():
-    return render_template('articles.html')
+    headlines = topHeadlines()
+
+    return render_template('articles.html', articles = headlines)
 
 @app.route('/articles')
 def articles():
-    return render_template('articles.html')
+    random = randomArticles()
+
+    return render_template('articles.html', articles = random)
 
 @app.route('/sources')
 def sources():
-    return render_template('articles.html')
+    newsSource = get_news_source()
+
+    return render_template('articles.html', articles = newsSource)
 
 @app.route('/category/business')
 def business():
-    return render_template('articles.html')
+    sources = businessArticles()
+
+    return render_template('articles.html', articles = sources)
 
 @app.route('/category/tech')
 def tech():
-    return render_template('articles.html')
+    sources = techArticles()
+
+    return render_template('articles.html', articles = sources)
 
 @app.route('/category/entertainment')
 def entertainment():
-    return render_template('articles.html')
+    sources = entArticles()
+
+    return render_template('articles.html', articles = sources)
 
 @app.route('/category/science')
 def science():
-    return render_template('articles.html')
+    sources = scienceArticles()
+
+    return render_template('articles.html', articles = sources)
 
 @app.route('/category/sports')
 def sports():
-    return render_template('articles.html')
+    sources = sportArticles()
+
+    return render_template('articles.html', articles = sources)
 
 @app.route('/category/health')
 def health():
-    return render_template('articles.html')
+    sources = healthArticles()
+
+    return render_template('articles.html', articles = sources)
