@@ -85,11 +85,21 @@ def getPersonalisationValues():
     check_get_user_preferences = ibm_db.exec_immediate(DB.DB_URI, get_user_preferences)
     try:
         value = ibm_db.fetch_tuple(check_get_user_preferences)
-        print(value)
         return value
     except Exception as e:
         print(e)
         
+def setPersonalisationValues():
+    email = session['email']
+    data = request.form.to_dict()
+    sql_query = "INSERT INTO PREFERENCES (EMAIL, PREFERENCE_1, PREFERENCE_2, PREFERENCE_3, PREFERENCE_4, PREFERENCE_5) VALUES('{}','{}','{}','{}','{}','{}')".format(email, data['Preference_1'], data['Preference_2'], data['Preference_3'], data['Preference_4'], data['Preference_5'])
+    sql_query_response = ibm_db.exec_immediate(DB.DB_URI, sql_query)
+    try:
+        value = ibm_db.fetch_tuple(sql_query_response)
+    except Exception as e:
+        print(e)
+        return False
+    return True
 
 """def sendVerificationMail(receiverEmail):
     message = Mail(

@@ -1,7 +1,7 @@
 from app import app
 from flask import request, redirect, url_for, render_template
 
-from .UserController import signUp, signIn, checkSessionData, clearSessionData, checkSessionPref
+from .UserController import signUp, signIn, checkSessionData, clearSessionData, getPersonalisationValues, setPersonalisationValues, checkSessionPref
 from .request import businessArticles, entArticles, get_news_source, healthArticles, publishedArticles, randomArticles, scienceArticles, sportArticles, techArticles, topHeadlines, search, personalisedArticles
 
 @app.route('/', methods=['GET', 'POST'])
@@ -11,7 +11,7 @@ def home():
             articles = personalisedArticles()
         else:
             articles = publishedArticles()
-        return render_template('home.html',articles = articles)
+        return render_template('home.html', articles = articles)
 
     if request.method == "POST":
         data = request.form.to_dict()
@@ -23,13 +23,18 @@ def home():
 
 @app.route("/sign-in", methods=["GET","POST"])
 def signInFunction():
-    if checkSessionData():
+    if request.method == "GET":
+       if checkSessionData():
         return redirect(url_for("home"))
 
     if request.method == "POST":
         response = signIn()
         if response:
-            return redirect(url_for("home"))
+            personalisedTopicsValues = getPersonalisationValues()
+            if personalisedTopicsValues is False:
+                return redirect(url_for("setPreferences"))
+            else:
+                return redirect(url_for("home"))
         else:
             return render_template('Signin.html', msg="Invalid credentials")
     else:
@@ -43,7 +48,7 @@ def signUpFunction():
     if request.method == "POST":
         response = signUp()
         if response:
-            return redirect(url_for("setPreferences"))
+            return redirect(url_for("signInFunction"))
         else:
             return render_template('Signup.html', msg="User already exists, please log in")
     else:
@@ -52,10 +57,14 @@ def signUpFunction():
 
 @app.route("/set-preferences", methods=["GET","POST"])
 def setPreferences():
-    if request.method=="GET":
-        #addPreferencesToDB() 
-        return render_template("preference.html")
-    if request.method=="POST":
+    if checkSessionData():
+        if request.method=="GET":
+            return render_template("preference.html")
+        if request.method=="POST":
+            #addPreferencesToDB() 
+            setPersonalisationValues()
+            return redirect(url_for("home"))
+    else:
         return redirect(url_for("signInFunction"))
 
 @app.route("/logout")

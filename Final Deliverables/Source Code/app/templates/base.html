@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Overpass">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+    <link rel="stylesheet" href="https://cloud-storage-newstracker.s3.jp-tok.cloud-object-storage.appdomain.cloud/style.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
       rel="stylesheet"
@@ -103,16 +103,6 @@
               </div>
 
               <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="las la-fire-alt"><path d="M16.5,8c0,1.5-0.5,3.5-2.9,4.3c0.7-1.7,0.8-3.4,0.3-5c-0.7-2.1-3-3.7-4.6-4.6C8.9,2.4,8.2,2.8,8.3,3.4c0,1.1-0.3,2.7-2,4.4  C4.1,10,3,12.3,3,14.5C3,17.4,5,21,9,21c-4-4-1-7.5-1-7.5c0.8,5.9,5,7.5,7,7.5c1.7,0,5-1.2,5-6.4c0-3.1-1.3-5.5-2.4-6.9  C17.3,7.2,16.6,7.5,16.5,8"></path></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="las la-bell"><path d="M19 13.586V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v3.586l-1.707 1.707A.996.996 0 0 0 3 16v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a.996.996 0 0 0-.293-.707L19 13.586zM19 17H5v-.586l1.707-1.707A.996.996 0 0 0 7 14v-4c0-2.757 2.243-5 5-5s5 2.243 5 5v4c0 .266.105.52.293.707L19 16.414V17zm-7 5a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22z"></path></i>
-                    </a>
-                </li>
                 {% if session['email'] %}
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">
@@ -142,9 +132,9 @@
     <script src="{{ url_for('static', filename='assets/scripts/preference.js') }}"></script>
     <script>
       window.watsonAssistantChatOptions = {
-        integrationID: "e4eee9d2-b43c-4034-9852-43a49cfa1e65", // The ID of this integration.
-        region: "jp-tok", // The region your integration is hosted in.
-        serviceInstanceID: "994abfb3-aa33-4876-ae09-27bce833a709", // The ID of your service instance.
+        integrationID: "50528bf3-80de-4536-bd62-66b00f59f13a", // The ID of this integration.
+        region: "au-syd", // The region your integration is hosted in.
+        serviceInstanceID: "ec1bbda0-2c35-416c-9943-b256f321e4ef", // The ID of your service instance.
         onLoad: function(instance) { instance.render(); }
       };
       setTimeout(function(){
