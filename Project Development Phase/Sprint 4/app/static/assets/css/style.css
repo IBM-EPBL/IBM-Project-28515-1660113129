@@ -331,4 +331,22 @@
     .pref .filtred{
       display: none !important;
     }
+
+    .flexDiv {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .preference-input {
+      margin: 0 0 10px 0 !important;
+    }
+
+    .preference-input ::placeholder {
+      color: white;
+    }
+
+    .preference-form {
+      text-align: left;
+      margin-bottom: none;
+    }
     
